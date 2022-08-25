@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Emilys+Candy&family=Open+Sans:wght@400;500&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url("./images/candy_background.jpg");
+  background-size: cover;
+  background-position: top;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  display: flex;
+  padding: 30px;
+}
+
+.game {
+  width: 576px;
+  height: 575px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(70, 90, 122, .7);
+  justify-content: center;
+  align-items: center;
+  border: 3px solid lightgray;
+  margin-top: 60px;
+}
+
+.game img {
+  width: 70px;
+  height: 70px;
+  border: 1px solid lightblue;
+}
+
+.scoreBoard {
+  background-color: #4169E1;
+  color: white;
+  width: 350px;
+  height: 575px;
+  position: relative;
+  left: -175px;
+  top: 60px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.taskSheet {
+  height: 250px;
+  width: 100%;
+  background: url("./images/task_sheet_background.jpg");
+  background-size: cover;
+  font-family: 'Emilys Candy', cursive;
+  font-size: 20px;
+  color: #FF00FF;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 20px;
+  position: relative;
+  bottom: 5px;
+}
+
+.taskSheet h1 {
+  margin: 0;
+  text-align: center;
+}
+
+.score {
+  width: 60%;
+  height: 50px;
+}
+
+.score, .moves {
+  background: rgb(70, 90, 122);
+  border-radius: 100px;
+  margin: 50px auto;
+  font-family: 'Emilys Candy', cursive;
+  font-size: 16px;
+  color: #FF00FF;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.moves {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.score h1, .moves h1 {
+  margin: 0;
+}
