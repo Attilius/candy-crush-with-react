@@ -17,7 +17,7 @@ body {
   padding: 30px;
 }
 
-.game {
+#gameBoard {
   width: 576px;
   height: 575px;
   display: flex;
@@ -26,7 +26,10 @@ body {
   justify-content: center;
   align-items: center;
   border: 3px solid lightgray;
+  border-radius: 8px;
   margin-top: 60px;
+  position: relative;
+  left: -170px;
 }
 
 .game img {
@@ -62,17 +65,21 @@ body {
   flex-direction: column;
   border-radius: 20px;
   position: relative;
-  bottom: 5px;
+  bottom: -5px;
 }
 
 .taskSheet h1 {
   margin: 0;
   text-align: center;
+  text-shadow: purple 1px 1px;
 }
 
 .score {
   width: 60%;
   height: 50px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
 }
 
 .score, .moves {
@@ -80,10 +87,8 @@ body {
   border-radius: 100px;
   margin: 50px auto;
   font-family: 'Emilys Candy', cursive;
-  font-size: 16px;
-  color: #FF00FF;
+  color: #FFF8DC;
   text-align: center;
-  padding-top: 5px;
 }
 
 .moves {
@@ -93,8 +98,124 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 6px;
+}
+
+.movesTitle {
+  font-size: 30px;
 }
 
 .score h1, .moves h1 {
   margin: 0;
+  text-shadow: purple 1px 1px;
+}
+
+.score h1 {
+  text-align: center;
+}
+
+.levelEnd {
+  background-color: #FFF8DC;
+  display: none;
+  justify-content: space-between;
+  flex-dorection: columm;
+  height: 576px;
+  width: 576px;
+  position: relative;
+  border-radius: 20px;
+  margin-top: 60px;
+  position: relative;
+  left: -170px;
+}
+
+.levelEndCover {
+  height: 100%;
+  width: 100%;
+  background: url("./images/level_end_background.png");
+  background-size: cover;
+  position: absolute;
+  border-radius: 20px;
+}
+
+.levelEndCover h2 {
+  font-family: 'Emilys Candy', cursive;
+  font-size: 50px;
+  color: #FF00FF;
+  text-align: center;
+  margin-top: 30px;
+  text-shadow: purple 1px 1px;
+}
+
+.buttonGroup {
+  width: 100%;
+  height: 40%;
+  position: relative;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Emilys Candy', cursive;
+}
+
+.levelEndScore {
+  background: rgb(70, 90, 122);
+  border-radius: 100px;
+  margin: 50px auto;
+  font-family: 'Emilys Candy', cursive;
+  color: #FFF8DC;
+  width: 50%;
+  height: 50px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.levelEndScore img {
+  height: 100px;
+  width: 120px;
+  border: none;
+  position: relative;
+  top: -20px;
+  left: -100px;
+}
+
+.levelEndScore h1 {
+  position: relative;
+  left: -60px;
+  text-shadow: purple 1px 1px;
+}
+
+#coin {
+  height: 80px;
+  position: relative;
+  left: -110px;
+  top: -15px;
+}
+
+#cup {
+  position: relative;
+  top: -25px;
+  left: -105px;
+}
+
+.btn-info, .btn-info:hover {
+  color: white;
+}
+
+.btn {
+  height: 70px;
+  width: 180px;
+  font-size: 30px;
+  text-shadow: purple 1px 1px;
+  border-radius: 50px;
+}
+
+#level {
+  position: relative;
+  top: -45px;
+  color: #FFF8DC;
+  text-align: center;
+  font-family: 'Emilys Candy', cursive;
+  font-size: 50px;
+  text-shadow: purple 1px 1px;
 }
