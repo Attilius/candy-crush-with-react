@@ -1,8 +1,7 @@
-import { useState, useCallback } from "react";
-import { width, sumOfThree, sumOfFour, sumOfFive, sumOfMove, firstRow, moves } from "./BasicVariables";
+import { useState, useEffect, useCallback } from "react";
+import { width, sumOfThree, sumOfFour, sumOfFive, sumOfMove, firstRow } from "./BasicVariables";
 import GameBoard from "./GameBoard";
 import ScoreBoard from "./components/ScoreBoard";
-import { useEffect } from "react";
 import blank from './images/blank.png';
 import useSound from 'use-sound';
 import Combo3 from './sounds/Combo-Sound3.mp3';
@@ -11,15 +10,17 @@ import Combo5 from './sounds/Combo-Sound5.mp3';
 import LevelFailed from './sounds/Level-Failed.mp3';
 import LevelCompleted from './sounds/Level-Completed.mp3';
 import CreateNewItem from "./CreateNewItem";
+import LevelEnd from "./components/LevelEnd";
 
 const App = () => {
   const [currentColorArrangement, setCurrentColorArrangement] = useState([]);
   const [itemBeingDragged, setItemBeingDragged] = useState(null);
   const [itemBeingReplaced, setItemBeingReplaced] = useState(null);
   const [scoreDisplay, setScoreDisplay] = useState(0);
-  const [littleBonusDisplay, setLittleBonusDisplay] = useState(0);
-  const [bigBonusDisplay, setBigBonusDisplay] = useState(0);
-  const [allMoves, setallMoves] = useState(moves);
+  //const [littleBonusDisplay, setLittleBonusDisplay] = useState(0);
+  //const [bigBonusDisplay, setBigBonusDisplay] = useState(0);
+  const [allMoves, setallMoves] = useState(10);
+  const [earnedCoins, setEarnedCoins] = useState(0);
   const [playSound_3] = useSound(Combo3);
   const [playSound_4] = useSound(Combo4);
   const [playSound_5] = useSound(Combo5);
@@ -37,7 +38,7 @@ const App = () => {
       if (columnOfFive.every(square => currentColorArrangement[square] === decidedColor && !isBlank)) {
         playSound_5();
         setScoreDisplay((score) => score + 50);
-        setBigBonusDisplay((bonus_5) => bonus_5 + 1);
+        //setBigBonusDisplay((bonus_5) => bonus_5 + 1);
         columnOfFive.forEach(square => currentColorArrangement[square] = blank);
         return true;
       }
@@ -57,7 +58,7 @@ const App = () => {
       if (rowOfFour.every(square => currentColorArrangement[square] === decidedColor && !isBlank)) {
         playSound_5();
         setScoreDisplay((score) => score + 50);
-        setBigBonusDisplay((bonus_5) => bonus_5 + 1);
+        //setBigBonusDisplay((bonus_5) => bonus_5 + 1);
         rowOfFour.forEach(square => currentColorArrangement[square] = blank);
         return true;
       }
@@ -73,7 +74,7 @@ const App = () => {
       if (columnOfThree.every(square => currentColorArrangement[square] === decidedColor && !isBlank)) {
         playSound_4();
         setScoreDisplay((score) => score + 40);
-        setLittleBonusDisplay((bonus_4) => bonus_4 + 1);
+        //setLittleBonusDisplay((bonus_4) => bonus_4 + 1);
         columnOfThree.forEach(square => currentColorArrangement[square] = blank);
         return true;
       }
@@ -92,7 +93,7 @@ const App = () => {
       if (rowOfFour.every(square => currentColorArrangement[square] === decidedColor && !isBlank)) {
         playSound_4();
         setScoreDisplay((score) => score + 40);
-        setLittleBonusDisplay((bonus_4) => bonus_4 + 1);
+        //setLittleBonusDisplay((bonus_4) => bonus_4 + 1);
         rowOfFour.forEach(square => currentColorArrangement[square] = blank);
         return true;
       }
@@ -180,12 +181,15 @@ const App = () => {
 
     if (validMove &&
       (isAColumnOfThree || isARowOfThree || isAColumnOfFour || isARowOfFour || isAColumnOfFive || isARowOfFive)) {
-      if (moves >=1 && scoreDisplay < 500) {
+      if (allMoves >= 1 && scoreDisplay < 500) {
         setallMoves((moves) => moves - 1);
-      } else if (moves >= 1 && scoreDisplay >= 500) {
+      } else if (allMoves >= 1 && scoreDisplay >= 500) {
+        setEarnedCoins((coins) => coins + Math.floor(scoreDisplay / 100) * 10);
         level_completed();
         setallMoves(0);
-        alert("YOU WON! Level 1 COMPLETED!!!")
+        document.getElementById('gameBoard').style.display = "none";
+        document.getElementById('levelEnd').style.display = "flex";
+        //alert("YOU WON! :) Level 1 COMPLETED!!!")
       } else {
         level_failed();
       }
@@ -220,27 +224,30 @@ const App = () => {
       <div className="scoreBoard">
         <ScoreBoard
           score={scoreDisplay}
-          bonus_4={littleBonusDisplay}
-          bonus_5={bigBonusDisplay}
           moves={allMoves}
         />
       </div>
       <div className="game">
-        {currentColorArrangement.map((color, index) => (
-          <img
-            key={index}
-            src={color}
-            alt={color}
-            data-id={index}
-            draggable={true}
-            onDragStart={dragStart}
-            onDragOver={(e) => e.preventDefault()}
-            onDragEnter={(e) => e.preventDefault()}
-            onDragLeave={(e) => e.preventDefault()}
-            onDrop={dragDrop}
-            onDragEnd={dragEnd}
-          />
-        ))}
+        <div id="gameBoard">
+          {currentColorArrangement.map((color, index) => (
+            <img
+              key={index}
+              src={color}
+              alt={color}
+              data-id={index}
+              draggable={true}
+              onDragStart={dragStart}
+              onDragOver={(e) => e.preventDefault()}
+              onDragEnter={(e) => e.preventDefault()}
+              onDragLeave={(e) => e.preventDefault()}
+              onDrop={dragDrop}
+              onDragEnd={dragEnd}
+            />
+          ))}
+        </div>
+        <div className="levelEnd" id="levelEnd">
+          <LevelEnd score={scoreDisplay} coins={earnedCoins} />
+        </div>
       </div>
     </div>
   );
