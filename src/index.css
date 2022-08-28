@@ -1,12 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Emilys+Candy&family=Open+Sans:wght@400;500&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
+:root {
+  --main-theme-font-family: 'Emilys Candy', cursive;
+  --game-board-background: rgba(70, 90, 122, .5);
+}
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-image: url("./images/candy_background.jpg");
+  background: url("./images/background.jpg") no-repeat center center fixed;
   background-size: cover;
-  background-position: top;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,11 +22,11 @@ body {
 }
 
 #gameBoard {
-  width: 576px;
-  height: 575px;
+  width: 566px;
+  height: 566px;
   display: flex;
   flex-wrap: wrap;
-  background-color: rgba(70, 90, 122, .7);
+  background-color: var(--game-board-background);
   justify-content: center;
   align-items: center;
   border: 3px solid lightgray;
@@ -32,17 +36,31 @@ body {
   left: -170px;
 }
 
-.game img {
+#gameBoard-level-1 {
+  width: 490px;
+  height: 490px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin-top: 100px;
+  position: relative;
+  left: -170px;
+}
+
+img {
   width: 70px;
   height: 70px;
   border: 1px solid lightblue;
 }
 
 .scoreBoard {
-  background-color: #4169E1;
+  /*background-color: #4169E1;*/
+  background-color: lightblue;
   color: white;
-  width: 350px;
-  height: 575px;
+  width: 250px;
+  height: 565px;
   position: relative;
   left: -175px;
   top: 60px;
@@ -53,11 +71,11 @@ body {
 }
 
 .taskSheet {
-  height: 250px;
+  height: 350px;
   width: 100%;
   background: url("./images/task_sheet_background.jpg");
   background-size: cover;
-  font-family: 'Emilys Candy', cursive;
+  font-family: var(--main-theme-font-family);
   font-size: 20px;
   color: #FF00FF;
   display: flex;
@@ -65,7 +83,7 @@ body {
   flex-direction: column;
   border-radius: 20px;
   position: relative;
-  bottom: -5px;
+  bottom: 25px;
 }
 
 .taskSheet h1 {
@@ -77,16 +95,16 @@ body {
 .score {
   width: 60%;
   height: 50px;
-  font-size: 16px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .score, .moves {
   background: rgb(70, 90, 122);
   border-radius: 100px;
   margin: 50px auto;
-  font-family: 'Emilys Candy', cursive;
+  font-family: var(--main-theme-font-family);
   color: #FFF8DC;
   text-align: center;
 }
@@ -108,13 +126,14 @@ body {
 .score h1, .moves h1 {
   margin: 0;
   text-shadow: purple 1px 1px;
+  font-size: 30px;
 }
 
 .score h1 {
   text-align: center;
 }
 
-.levelEnd {
+.levelWin, .levelLose {
   background-color: #FFF8DC;
   display: none;
   justify-content: space-between;
@@ -123,9 +142,7 @@ body {
   width: 576px;
   position: relative;
   border-radius: 20px;
-  margin-top: 60px;
-  position: relative;
-  left: -170px;
+  margin-top: 55px;
 }
 
 .levelEndCover {
@@ -138,7 +155,7 @@ body {
 }
 
 .levelEndCover h2 {
-  font-family: 'Emilys Candy', cursive;
+  font-family: var(--main-theme-font-family);
   font-size: 50px;
   color: #FF00FF;
   text-align: center;
@@ -148,20 +165,20 @@ body {
 
 .buttonGroup {
   width: 100%;
-  height: 40%;
+  height: 10%;
   position: relative;
   bottom: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-family: 'Emilys Candy', cursive;
+  font-family: var(--main-theme-font-family);
 }
 
 .levelEndScore {
   background: rgb(70, 90, 122);
   border-radius: 100px;
   margin: 50px auto;
-  font-family: 'Emilys Candy', cursive;
+  font-family: var(--main-theme-font-family);
   color: #FFF8DC;
   width: 50%;
   height: 50px;
@@ -198,8 +215,13 @@ body {
   left: -105px;
 }
 
-.btn-info, .btn-info:hover {
+.btn-info, .btn-info:hover, .btn-info:focus {
   color: white;
+}
+
+.btn-info:focus {
+  font-size: 35px;
+  border: none;
 }
 
 .btn {
@@ -215,7 +237,27 @@ body {
   top: -45px;
   color: #FFF8DC;
   text-align: center;
-  font-family: 'Emilys Candy', cursive;
+  font-family: var(--main-theme-font-family);
   font-size: 50px;
   text-shadow: purple 1px 1px;
+}
+
+.lose {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 200px;
+}
+
+#brokenHeart {
+  border: none;
+  width: 100px;
+  position: relative;
+  top: 10px;
+}
+
+.loseLife {
+  font-size: 30px !important;
+  position: relative;
+  left: 20px;
 }
