@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import ScoreBoard from './components/ScoreBoard';
-import { colors, width, moves, striped } from "./BasicVariables";
+import { colors, width, moves, stripedHorizontal } from "./BasicVariables";
+import {decode as atob} from 'base-64';
 import useSound from 'use-sound';
 
 import Blank from './images/Blank.png';
@@ -185,10 +186,11 @@ const App = () => {
           (isAColumnOfThree || isARowOfThree || isAColumnOfFour || isARowOfFour || isAColumnOfFive || isARowOfFive)) {
             if (isARowOfFour && 
               (itemBeingDragged.getAttribute('src') === colors[0] || itemBeingReplaced.getAttribute('src') === colors[0])) {
-              currentColorArrangement[itemBeingReplacedId] = striped[0];
+              currentColorArrangement[itemBeingReplacedId] = stripedHorizontal[0];
             }
             
           if (allMoves >= 1 && scoreDisplay < 500) {
+            //console.dir(itemBeingDragged.getAttribute('alt'))
             setallMoves((moves) => moves - 1);
           } else if (scoreDisplay >= 500) {
             setEarnedCoins((coins) => coins + Math.floor(scoreDisplay / 100) * 10);
@@ -227,7 +229,6 @@ const App = () => {
         return () => clearInterval(timer)
     }, [checkForColumnOfFive, checkForRowOfFive, checkForColumnOfFour, checkForRowOfFour, 
       checkForColumnOfThree, checkForRowOfThree, moveIntoSquareBelow, currentColorArrangement])
-
 
     return (
       <div className="app">
