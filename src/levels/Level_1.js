@@ -1,6 +1,17 @@
 import { colors } from "../BasicVariables";
 import { useEffect } from "react";
 
+/*
+export const colors = [
+    0 {blue: blue},
+    1 {green: green},
+    2 {orange: orange},
+    3 {purple: purple},
+    4 {red: red},
+    5 {yellow: yellow}
+];
+*/
+
 const Level_1 = (setCurrentColorArrangement) => {
     const createBoard = () => {
         const starterColorArrangement = [
