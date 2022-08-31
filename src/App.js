@@ -192,7 +192,8 @@ const App = () => {
               chocoBombColors.push(i)
             }
           }
-          console.log(chocoBombColors)
+          setScoreDisplay((score) => score + chocoBombColors.length * 10);
+          chocoBombColors.forEach(square => currentColorArrangement[square] = Blank);
         }
 
         if (validMove &&
