@@ -4,7 +4,7 @@ import { colors, width, moves, stripedHorizontal } from "./BasicVariables";
 import useSound from 'use-sound';
 
 import Blank from './images/Blank.png';
-//import Choco from './images/Choco.png';
+import Choco from './images/Choco.png';
 
 import Combo3 from './sounds/Combo-Sound3.mp3';
 import Combo4 from './sounds/Combo-Sound4.mp3';
@@ -187,6 +187,10 @@ const App = () => {
 
         if (validMove &&
           (isAColumnOfThree || isARowOfThree || isAColumnOfFour || isARowOfFour || isAColumnOfFive || isARowOfFive)) {
+            if ((isAColumnOfFive || isARowOfFive) && 
+            (itemBeingDragged.getAttribute('src') === colors[4] || itemBeingReplaced.getAttribute('src') === colors[4])) {
+              currentColorArrangement[itemBeingReplacedId] = Choco;
+            }
             if (isARowOfFour && 
               (itemBeingDragged.getAttribute('src') === colors[0] || itemBeingReplaced.getAttribute('src') === colors[0])) {
               currentColorArrangement[itemBeingReplacedId] = stripedHorizontal[0];
