@@ -186,7 +186,13 @@ const App = () => {
         const isARowOfThree = checkForRowOfThree()
 
         if (validMove && (itemBeingDragged.getAttribute('src') === Choco || itemBeingReplaced.getAttribute('src') === Choco)) {
-          console.log('Choco bomb')
+          const chocoBombColors = [];
+          for (let i = 0; i <= 48; i++) {
+            if (currentColorArrangement[i] === itemBeingReplaced.getAttribute('src')) {
+              chocoBombColors.push(i)
+            }
+          }
+          console.log(chocoBombColors)
         }
 
         if (validMove &&
