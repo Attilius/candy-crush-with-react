@@ -185,6 +185,10 @@ const App = () => {
         const isAColumnOfThree = checkForColumnOfThree()
         const isARowOfThree = checkForRowOfThree()
 
+        if (validMove && (itemBeingDragged.getAttribute('src') === Choco || itemBeingReplaced.getAttribute('src') === Choco)) {
+          console.log('Choco bomb')
+        }
+
         if (validMove &&
           (isAColumnOfThree || isARowOfThree || isAColumnOfFour || isARowOfFour || isAColumnOfFive || isARowOfFive)) {
             if ((isAColumnOfFive || isARowOfFive) && 
