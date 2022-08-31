@@ -1,17 +1,17 @@
 import { useState, useEffect, useCallback } from "react";
 import ScoreBoard from './components/ScoreBoard';
 import { colors, width, moves, stripedHorizontal } from "./BasicVariables";
-import {decode as atob} from 'base-64';
 import useSound from 'use-sound';
 
 import Blank from './images/Blank.png';
-import Choco from './images/Choco.png';
+//import Choco from './images/Choco.png';
 
 import Combo3 from './sounds/Combo-Sound3.mp3';
 import Combo4 from './sounds/Combo-Sound4.mp3';
 import Combo5 from './sounds/Combo-Sound5.mp3';
 import LevelFailed from './sounds/Level-Failed.mp3';
 import LevelCompleted from './sounds/Level-Completed.mp3';
+import LineBlast from './sounds/Line-Blast.mp3';
 
 import Level_1 from './levels/Level_1';
 
@@ -30,6 +30,7 @@ const App = () => {
     const [playSound_5] = useSound(Combo5);
     const [level_failed] = useSound(LevelFailed);
     const [level_completed] = useSound(LevelCompleted);
+    const [line_blast] = useSound(LineBlast);
 
     Level_1(setCurrentColorArrangement);
 
@@ -121,7 +122,9 @@ const App = () => {
           const decidedColor = currentColorArrangement[i];
           const notValid = [5, 6, 7, 11, 12, 13, 19, 20, 26, 27, 33, 34, 35, 39, 40, 41, 47, 48];
           const isBlank = currentColorArrangement[i] === Blank;
-    
+          //const isStriped = currentColorArrangement[i] === stripedHorizontal[0];
+          const row_2 = [14, 15, 16, 17, 18, 19, 20];
+
           if (notValid.includes(i)) continue;
     
           if (rowOfThree.every(square => currentColorArrangement[square] === decidedColor && !isBlank)) {
