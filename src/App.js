@@ -11,7 +11,7 @@ import Combo4 from './sounds/Combo-Sound4.mp3';
 import Combo5 from './sounds/Combo-Sound5.mp3';
 import LevelFailed from './sounds/Level-Failed.mp3';
 import LevelCompleted from './sounds/Level-Completed.mp3';
-import LineBlast from './sounds/Line-Blast.mp3';
+
 import SuperColorBomb from './sounds/Super-Color-Bomb.mp3';
 
 import Level_1 from './levels/Level_1';
