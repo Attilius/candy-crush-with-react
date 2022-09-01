@@ -211,7 +211,6 @@ const App = () => {
             }
             
           if (allMoves >= 1 && scoreDisplay < 500) {
-            //console.dir(itemBeingDragged.getAttribute('alt'))
             setallMoves((moves) => moves - 1);
           } else if (scoreDisplay >= 500) {
             setEarnedCoins((coins) => coins + Math.floor(scoreDisplay / 100) * 10);
