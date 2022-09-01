@@ -205,6 +205,7 @@ const App = () => {
             (itemBeingDragged.getAttribute('src') === colors[4] || itemBeingReplaced.getAttribute('src') === colors[4])) {
               currentColorArrangement[itemBeingReplacedId] = Choco;
             }
+            
             if (isARowOfFour && 
               (itemBeingDragged.getAttribute('src') === colors[0] || itemBeingReplaced.getAttribute('src') === colors[0])) {
               currentColorArrangement[itemBeingReplacedId] = stripedHorizontal[0];
