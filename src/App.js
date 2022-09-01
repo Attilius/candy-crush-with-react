@@ -31,7 +31,7 @@ const App = () => {
     const [playSound_5] = useSound(Combo5);
     const [level_failed] = useSound(LevelFailed);
     const [level_completed] = useSound(LevelCompleted);
-    const [line_blast] = useSound(LineBlast);
+
     const [super_color_bomb] = useSound(SuperColorBomb);
 
     Level_1(setCurrentColorArrangement);
