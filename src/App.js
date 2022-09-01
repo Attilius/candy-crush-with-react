@@ -12,7 +12,7 @@ import Combo5 from './sounds/Combo-Sound5.mp3';
 import LevelFailed from './sounds/Level-Failed.mp3';
 import LevelCompleted from './sounds/Level-Completed.mp3';
 import LineBlast from './sounds/Line-Blast.mp3';
-import Lazer from './sounds/Ufo-Lazer.mp3';
+import SuperColorBomb from './sounds/Super-Color-Bomb.mp3';
 
 import Level_1 from './levels/Level_1';
 
@@ -32,7 +32,7 @@ const App = () => {
     const [level_failed] = useSound(LevelFailed);
     const [level_completed] = useSound(LevelCompleted);
     const [line_blast] = useSound(LineBlast);
-    const [lazer] = useSound(Lazer);
+    const [super_color_bomb] = useSound(SuperColorBomb);
 
     Level_1(setCurrentColorArrangement);
 
@@ -194,7 +194,7 @@ const App = () => {
               chocoBombColors.push(i)
             }
           }
-          lazer();
+          super_color_bomb();
           setScoreDisplay((score) => score + chocoBombColors.length * 10);
           chocoBombColors.forEach(square => currentColorArrangement[square] = Blank);
         }
