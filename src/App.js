@@ -122,7 +122,7 @@ const App = () => {
           const decidedColor = currentColorArrangement[i];
           const notValid = [5, 6, 7, 11, 12, 13, 19, 20, 26, 27, 33, 34, 35, 39, 40, 41, 47, 48];
           const isBlank = currentColorArrangement[i] === Blank;
-          const row_2 = [14, 15, 16, 17];
+          const row_2 = [14, 15, 16];
 
           if (notValid.includes(i)) continue;
     
