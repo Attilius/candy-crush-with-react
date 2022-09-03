@@ -149,7 +149,8 @@ const App = () => {
       const superBombFields = [];
 
       if (currentColorArrangement[i] === Choco) {
-        console.log("Super")
+        superBombFields.push(i);
+        console.log(superBombFields)
       }
 
       if ((isFirstRow && currentColorArrangement[i] === Blank) || (currentColorArrangement[i] === Blank)) {
