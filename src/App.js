@@ -134,6 +134,10 @@ const App = () => {
     }
   }, [currentColorArrangement, playSound_3]);
 
+  const useSuperColorBomb = useCallback(() => {
+
+  });
+
   const moveIntoSquareBelow = useCallback(() => {
     for (let i = 0; i <= 48; i++) {
       const firstRow = [0, 1, 2, 3, 4, 5, 6];
