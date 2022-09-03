@@ -190,7 +190,8 @@ const App = () => {
               chocoBombColors.push(i)
             }
           }
-          super_color_bomb();
+          //console.log(chocoBombColors)
+          //super_color_bomb();
           setScoreDisplay((score) => score + chocoBombColors.length * 10);
           chocoBombColors.forEach(square => currentColorArrangement[square] = Blank);
         }
