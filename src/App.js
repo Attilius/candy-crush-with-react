@@ -135,7 +135,9 @@ const App = () => {
   }, [currentColorArrangement, playSound_3]);
 
   const useSuperColorBomb = useCallback(() => {
-
+    for (let i = 0; i < 49; i++) {
+      const notValid = [];
+    }
   });
 
   const moveIntoSquareBelow = useCallback(() => {
