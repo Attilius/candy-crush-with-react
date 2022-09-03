@@ -147,10 +147,6 @@ const App = () => {
       const fixedFields = [7, 13, 35, 41];
       const isFixedField = fixedFields.includes(i);
 
-      if (currentColorArrangement[i] === Choco) {
-        superBombFields.push(i);
-      }
-
       if ((isFirstRow && currentColorArrangement[i] === Blank) || (currentColorArrangement[i] === Blank)) {
         let randomNumber = Math.floor(Math.random() * colors.length)
         currentColorArrangement[i] = colors[randomNumber]
