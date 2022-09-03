@@ -146,11 +146,9 @@ const App = () => {
       const isFirstRow = firstRow.includes(i);
       const fixedFields = [7, 13, 35, 41];
       const isFixedField = fixedFields.includes(i);
-      const superBombFields = [];
 
       if (currentColorArrangement[i] === Choco) {
         superBombFields.push(i);
-        console.log(superBombFields)
       }
 
       if ((isFirstRow && currentColorArrangement[i] === Blank) || (currentColorArrangement[i] === Blank)) {
