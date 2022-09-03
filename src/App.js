@@ -136,7 +136,7 @@ const App = () => {
 
   const useSuperColorBomb = useCallback(() => {
     for (let i = 0; i < 49; i++) {
-      const notValid = [];
+      const notValid = [7];
     }
   });
 
